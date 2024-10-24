@@ -10,6 +10,19 @@ interface IMealPage {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
+export async function generateMetadata({ params }: IMealPage) {
+  const meal = getMeal(params.slug);
+
+  if (!meal) {
+    notFound();
+  }
+  
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default function MealDetailsPage({ params }: IMealPage) {
   const meal = getMeal(params.slug);
 

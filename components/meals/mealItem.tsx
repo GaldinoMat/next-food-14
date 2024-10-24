@@ -6,7 +6,7 @@ import classes from "./mealItem.module.css";
 export interface IMealItem {
   title: string;
   slug: string;
-  image: any;
+  image: string;
   summary: string;
   creator: string;
 }
